@@ -6,12 +6,11 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 12:22:37 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/08/01 15:31:51 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/09/08 12:00:14 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lemin.h"
-#include <stdio.h>
 
 static int		find_new_max_path(t_lemin *data, int limit)
 {

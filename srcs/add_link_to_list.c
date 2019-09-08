@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_link_to_list.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roduquen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/23 18:16:20 by roduquen          #+#    #+#             */
-/*   Updated: 2019/07/30 12:28:05 by mybenzar         ###   ########.fr       */
+/*   Created: 2019/07/23 18:16:20 by mybenzar          #+#    #+#             */
+/*   Updated: 2019/09/08 14:17:06 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 
 static int	check_if_link_already_exists(char *str, int mid, char *s1, char *s2)
 {
-	int		i;
-
-	i = 0;
 	if (!ft_strcmp(str, s1))
 	{
 		if (!ft_strcmp(str + mid, s2))

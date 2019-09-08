@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lemin.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roduquen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/19 11:57:34 by roduquen          #+#    #+#             */
-/*   Updated: 2019/08/02 21:33:16 by roduquen         ###   ########.fr       */
+/*   Created: 2019/06/19 11:57:34 by mybenzar          #+#    #+#             */
+/*   Updated: 2019/09/08 15:08:14 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int		translate_lstrom_to_tab(t_lemin *data)
 		i++;
 		tmp = tmp->next;
 	}
-	if (!(data->room_tab = (t_lstrom **)malloc(sizeof(t_lstrom *) * i)))
+	if (i == 0 || !(data->room_tab = (t_lstrom **)malloc(sizeof(t_lstrom *) * i)))
 		return (1);
 	i = 0;
 	tmp = data->rooms;
@@ -55,7 +55,7 @@ void			print_begin_file(t_lemin *data)
 	while (data->begin_file)
 	{
 		if (data->begin_file->str)
-			printf("%s\n", data->begin_file->str);
+			ft_putendl(data->begin_file->str);
 		data->begin_file = data->begin_file->next;
 	}
 }
@@ -64,7 +64,7 @@ static int		launch_parsing_print_map(t_lemin *data)
 {
 	if (initialize_and_parse_data(data))
 	{
-		printf("ERROR PARSING\n");
+		ft_putendl_fd("ERROR PARSING", 2);
 		return (1);
 	}
 	if (translate_lstrom_to_tab(data))

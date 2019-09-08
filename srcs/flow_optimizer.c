@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 14:12:25 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/08/02 21:32:10 by roduquen         ###   ########.fr       */
+/*   Updated: 2019/09/08 11:59:49 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ double		room_link_ratio(t_lemin *data)
 	}
 	if (avg == 0)
 		return (-1);
-	printf("ratio = %f\n", (double)data->nbr_room * 2. / (double)avg);
 	return ((double)data->nbr_room * 2. / (double)avg);
 }
 

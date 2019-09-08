@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convert_to_usefull.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roduquen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/16 20:29:59 by roduquen          #+#    #+#             */
-/*   Updated: 2019/08/02 21:32:51 by roduquen         ###   ########.fr       */
+/*   Created: 2019/07/16 20:29:59 by mybenzar          #+#    #+#             */
+/*   Updated: 2019/09/08 14:17:25 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,11 @@ int			allocate_and_init_graphs(t_lemin *data)
 
 int			convert_parsing_to_usefull(t_lemin *data)
 {
-	int			i;
-	int			j;
 	t_lstlin	*tmp;
 
 	if (allocate_and_init_graphs(data))
 		return (1);
 	tmp = data->links;
-	i = 0;
-	j = 0;
 	while (tmp)
 	{
 		data->graph[tmp->id1][tmp->id2] = 1;

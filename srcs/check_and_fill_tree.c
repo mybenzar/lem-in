@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_and_fill_tree.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roduquen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/20 16:24:38 by roduquen          #+#    #+#             */
-/*   Updated: 2019/07/31 19:26:02 by mybenzar         ###   ########.fr       */
+/*   Created: 2019/06/20 16:24:38 by mybenzar          #+#    #+#             */
+/*   Updated: 2019/09/08 14:16:49 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int	check_if_it_is_start_end_or_comment(t_lstch *begin, t_lemin *data)
 			begin = begin->next;
 			i++;
 		}
-		if (i == 3 && begin->c == 0)
+		if (i == 3 && begin != NULL && begin->c == 0)
 			data->start_end = 2;
 	}
 	return (0);
@@ -111,7 +111,6 @@ int			check_if_line_can_probably_be_well_formated(t_lstch *begin
 {
 	int	type;
 
-	type = 0;
 	if (begin->c == 'L')
 		return (1);
 	if ((type = check_line_and_fill_type(begin, data, len)) == -1)

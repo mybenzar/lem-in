@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 14:11:39 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/08/02 16:43:08 by roduquen         ###   ########.fr       */
+/*   Updated: 2019/09/08 15:10:40 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	fill_queue(t_lemin *data, int result, t_queue **end
 
 	tmp = data->exit_paths;
 	i = 1;
-	while (i <= data->max_flow)
+	while (tmp != NULL && i <= data->max_flow)
 	{
 		if (lem < data->nbr_lem && i <= data->surplus)
 		{
@@ -73,14 +73,17 @@ static void	print_ants(t_lemin *data, int result, t_queue **end
 				, queue[0]->room - 1);
 			queue_add(end, new);
 		}
-		printf("L%d-%s", queue[0]->parent
-			, data->room_tab[((int*)queue[0]->ptr)[queue[0]->room] - 1]->name);
+		ft_putchar('L');
+		ft_putnbr(queue[0]->parent);
+		ft_putchar('-');
+		ft_putstr(
+			data->room_tab[((int*)queue[0]->ptr)[queue[0]->room] - 1]->name);
 		queue_forward(&queue[0]);
 		if (queue[0] && (!(result - 1) || wait != queue[0]->prev))
-			printf(" ");
+			ft_putchar(' ');
 	}
 	if (queue[0])
-		printf("\n");
+		ft_putchar('\n');
 }
 
 static int	check_max_flow(t_lemin *data, int *result)
@@ -104,15 +107,16 @@ int			display(t_lemin *data)
 	end = NULL;
 	queue[0] = NULL;
 	queue[1] = NULL;
+	result = 0;
 	if (check_max_flow(data, &result))
 		return (1);
-	while (result)
+	while (result > 0)
 	{
 		fill_queue(data, result, &end, queue);
 		print_ants(data, result, &end, queue);
 		result--;
 	}
-	printf("\n");
+	ft_putchar('\n');
 	while (queue[1])
 	{
 		queue[0] = queue[1]->next;

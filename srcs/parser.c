@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roduquen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/19 10:49:32 by roduquen          #+#    #+#             */
-/*   Updated: 2019/08/02 09:59:11 by mybenzar         ###   ########.fr       */
+/*   Created: 2019/06/19 10:49:32 by mybenzar          #+#    #+#             */
+/*   Updated: 2019/09/08 14:15:17 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,8 @@
 static int	translate_char_list_to_array(t_lstch *list, t_lemin *data, int len)
 {
 	int			i;
-	t_lstch		*tmp;
 
 	i = 0;
-	tmp = list;
 	if (!(data->file->next = (t_lstst*)malloc(sizeof(t_lstst))))
 		return (1);
 	data->file->next->line = data->file->line + 1;
@@ -134,6 +132,7 @@ int			parser(t_lemin *data)
 
 	ret[1] = 0;
 	begin = NULL;
+	actual = NULL;
 	if (read_loop(data, &begin, &actual, ret))
 		return (1);
 	if (!ret[0] && actual != begin)
