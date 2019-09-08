@@ -6,41 +6,13 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 14:12:25 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/09/08 11:59:49 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/09/08 17:19:18 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "lemin.h"
 #include "libft.h"
-#include <stdio.h>
-
-double		room_link_ratio(t_lemin *data)
-{
-	int i;
-	int j;
-	int	max;
-	int	avg;
-
-	i = 1;
-	avg = 0;
-	while (i <= data->nbr_room)
-	{
-		j = 1;
-		max = 0;
-		while (j <= data->nbr_room)
-		{
-			if (data->graph[i][j] == 1)
-				max++;
-			j++;
-		}
-		avg += max;
-		i++;
-	}
-	if (avg == 0)
-		return (-1);
-	return ((double)data->nbr_room * 2. / (double)avg);
-}
 
 int			save_path(t_lemin *data, t_lstpat **start)
 {

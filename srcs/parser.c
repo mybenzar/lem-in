@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/19 10:49:32 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/09/08 14:15:17 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/09/08 19:36:59 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,33 @@
 static int	translate_char_list_to_array(t_lstch *list, t_lemin *data, int len)
 {
 	int			i;
+	t_lstst		*node;
+	t_lstst		*run;
 
 	i = 0;
-	if (!(data->file->next = (t_lstst*)malloc(sizeof(t_lstst))))
+	node = (t_lstst*)malloc(sizeof(t_lstst));
+	if (node == NULL)
 		return (1);
-	data->file->next->line = data->file->line + 1;
-	data->file = data->file->next;
-	data->file->len = len;
-	if (!(data->file->str = (char*)malloc(sizeof(char) * (len + 1))))
+	node->line = data->file->line + 1;
+	node->str = (char*)malloc(sizeof(char) * (len + 1));
+	node->len = len;
+	node->next = NULL;
+	if (node->str == NULL)
+	{
+		free(node);
 		return (1);
-	while (list && (data->file->str[i++] = list->c))
+	}
+	while (list && i < len)
+	{
+		node->str[i++] = list->c;
 		list = list->next;
-	data->file->next = NULL;
+	}
+	run = data->file;
+	while (run->next != NULL)
+		run = run->next;
+	run->next = node;
 	return (0);
 }
-
 /*
 **	--> add_char_to_list_before_translation : saves each char from the file
 **	into a t_lstch list.
@@ -72,14 +84,23 @@ static int	add_char_to_list_before_translation(t_lstch **actual
 static int	translate_line_and_verify_if_well_formated(t_lstch **actual
 	, t_lstch **begin, t_lemin *data, int *count)
 {
-	if (add_char_to_list_before_translation(actual, 0, begin))
-		return (1);
-	translate_char_list_to_array(*begin, data, *count);
-	if (check_if_line_can_probably_be_well_formated(*begin, data, *count))
-		return (1);
-	*actual = *begin;
+	int	ret;
+	static t_lstch *cur = NULL;
+	static	int	i = 0;
+
+	if (cur == NULL)
+		cur = *begin;
+	ret = 0;
+	if (add_char_to_list_before_translation(actual, 0, &cur))
+		ret = 1;
+	if (ret == 0 && translate_char_list_to_array(cur, data, *count))
+		 ret = 1;
+	if (ret == 0 && check_if_line_can_probably_be_well_formated(cur, data, *count, i))
+		ret = 1;
+	*actual = cur;
 	*count = 0;
-	return (0);
+	i++;
+	return (ret);
 }
 
 /*
@@ -100,6 +121,8 @@ static int	read_loop(t_lemin *data, t_lstch **begin, t_lstch **actual
 	{
 		if (buf == '\n' || !buf)
 		{
+			if (*actual == NULL && add_char_to_list_before_translation(actual, buf, begin))
+				return (free_char_list(begin, 1));
 			if (translate_line_and_verify_if_well_formated(actual, begin
 					, data, &ret[1]))
 				return (free_char_list(begin, 1));
@@ -111,7 +134,7 @@ static int	read_loop(t_lemin *data, t_lstch **begin, t_lstch **actual
 			if (++(ret[1]) % 4096 == 0)
 			{
 				if (check_if_line_can_probably_be_well_formated(*begin, data
-						, ret[1]))
+						, ret[1], 1))
 					return (free_char_list(begin, 1));
 			}
 		}
@@ -133,8 +156,8 @@ int			parser(t_lemin *data)
 	ret[1] = 0;
 	begin = NULL;
 	actual = NULL;
-	if (read_loop(data, &begin, &actual, ret))
-		return (1);
+	if (read_loop(data, &begin, &actual, ret) == 1)
+		return (free_char_list(&begin, 1));
 	if (!ret[0] && actual != begin)
 	{
 		if (translate_line_and_verify_if_well_formated(&actual, &begin

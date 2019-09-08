@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/16 20:29:59 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/09/08 14:17:25 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/09/08 18:43:26 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,11 @@ int			convert_parsing_to_usefull(t_lemin *data)
 	{
 		data->graph[tmp->id1][tmp->id2] = 1;
 		data->graph[tmp->id2][tmp->id1] = 1;
-		if ((tmp->id1 == data->start->id || tmp->id2 == data->start->id)
-			&& (tmp->id1 == data->end->id || tmp->id2 == data->end->id))
-			return (42);
+//		if ((tmp->id1 == data->start->id || tmp->id2 == data->start->id)
+//			&& (tmp->id1 == data->end->id || tmp->id2 == data->end->id))
+//		{
+//			return (2);
+//		}
 		tmp = tmp->next;
 	}
 	data->graph[data->start->id][0] = 0;

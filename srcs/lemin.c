@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/19 11:57:34 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/09/08 15:08:14 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/09/08 18:54:45 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ static int		initialize_and_parse_data(t_lemin *data)
 	data->begin_file = data->file;
 	data->begin_file->str = NULL;
 	data->file->next = NULL;
-	parser(data);
+	if (parser(data) != 0)
+		return (1);
 	if (!(data->end) || !(data->start))
 		return (1);
 	return (0);
@@ -77,10 +78,19 @@ static int		launch_parsing_print_map(t_lemin *data)
 	return (0);
 }
 
+void			free_list_file(t_lstst *lst)
+{
+	if (lst != NULL)
+	{
+		free_list_file(lst->next);
+		free(lst);
+	}
+}
+
 int				main(void)
 {
 	t_lemin		data;
-	void		*tmp;
+	int			ret;
 
 	ft_memset(&data, 0, sizeof(t_lemin));
 	if (!(data.file = (t_lstst*)malloc(sizeof(t_lstst))))
@@ -88,17 +98,9 @@ int				main(void)
 		ft_putendl_fd("Initial malloc has failed, check your memory use", 2);
 		return (1);
 	}
-	tmp = data.file;
-	if (launch_parsing_print_map(&data) == 1)
-		return (1);
-	while (tmp)
-	{
-		data.file = ((t_lstst*)tmp)->next;
-		free(((t_lstst*)tmp)->str);
-		free(tmp);
-		tmp = data.file;
-	}
+	ret = launch_parsing_print_map(&data);
 	free_data_after_parsing(&data, 0);
 	free_data_after_printing(&data, 0);
-	return (0);
+	free_list_file(data.file);
+	return (ret);
 }

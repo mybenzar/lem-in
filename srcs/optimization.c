@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 12:22:37 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/09/08 12:00:14 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/09/08 17:19:17 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,16 @@ int				ants_dispatcher(t_lemin *data, int limit)
 		i++;
 	}
 	result = data->nbr_lem - result;
-	data->surplus = result % limit;
-	result /= limit;
+//	if (limit == 0)
+//	{
+//		return (0);
+//		data->surplus = 0;
+//	}
+//	else
+//	{
+		data->surplus = result % limit;
+		result /= limit;
+//	}
 	data->max_flow = limit;
 	return (result);
 }

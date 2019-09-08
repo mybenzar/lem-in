@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 14:11:39 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/09/08 15:10:40 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/09/08 17:18:47 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,12 @@ static void	fill_queue(t_lemin *data, int result, t_queue **end
 
 	tmp = data->exit_paths;
 	i = 1;
-	while (tmp != NULL && i <= data->max_flow)
+	if (data->max_flow == 1 && tmp->path[0] == 2)
+	{
+		while (lem < data->nbr_lem)
+			add_ant_and_room_to_queue(tmp, &lem, end, queue);
+	}
+	while (lem < data->nbr_lem && tmp != NULL && i <= data->max_flow)
 	{
 		if (lem < data->nbr_lem && i <= data->surplus)
 		{

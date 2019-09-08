@@ -1,5 +1,15 @@
 # swap
 .*.sw*
 
-lem-in
+# obj
+objs/
+*.o
 
+# lib
+*.a
+
+# debug
+*.dSYM
+
+# bin
+lem-in

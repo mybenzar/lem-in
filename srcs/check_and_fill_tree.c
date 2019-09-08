@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/20 16:24:38 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/09/08 14:16:49 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/09/08 19:39:11 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int			find_name_in_list(t_lemin *data, char *str, int *id)
 **	a comment, an instruction or map information.
 */
 
-static int	check_line_and_fill_type(t_lstch *begin, t_lemin *data, int len)
+static int	check_line_and_fill_type(t_lstch *begin, t_lemin *data, int len, int i)
 {
 	int			ret;
 
@@ -85,6 +85,8 @@ static int	check_line_and_fill_type(t_lstch *begin, t_lemin *data, int len)
 	{
 		if (begin->next && begin->next->c == '#')
 		{
+			if (i == 0)
+				return (-1);
 			return (check_if_it_is_start_end_or_comment(begin->next->next
 					, data));
 		}
@@ -107,13 +109,13 @@ static int	check_line_and_fill_type(t_lstch *begin, t_lemin *data, int len)
 */
 
 int			check_if_line_can_probably_be_well_formated(t_lstch *begin
-	, t_lemin *data, int len)
+	, t_lemin *data, int len, int i)
 {
 	int	type;
 
 	if (begin->c == 'L')
 		return (1);
-	if ((type = check_line_and_fill_type(begin, data, len)) == -1)
+	if ((type = check_line_and_fill_type(begin, data, len, i)) == -1)
 		return (1);
 	return (0);
 }

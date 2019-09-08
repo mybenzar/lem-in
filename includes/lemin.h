@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/19 10:50:29 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/08/02 16:43:51 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/09/08 19:35:04 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ struct					s_lemin
 
 int						parser(t_lemin *data);
 int						check_if_line_can_probably_be_well_formated(
-	t_lstch *begin, t_lemin *data, int len);
+	t_lstch *begin, t_lemin *data, int len, int i);
 int						find_type_of_line(t_lstch *begin, t_lemin *data
 	, int len);
 int						add_node_if_well_formated(t_lemin *data, char **str);

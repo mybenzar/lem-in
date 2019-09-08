@@ -6,7 +6,7 @@
 /*   By: mybenzar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/23 16:15:11 by mybenzar          #+#    #+#             */
-/*   Updated: 2019/07/31 19:26:02 by mybenzar         ###   ########.fr       */
+/*   Updated: 2019/09/08 19:38:33 by mybenzar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "libft.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <limits.h>
 
 int			free_return(void **ptr, int type)
 {
@@ -34,10 +35,10 @@ static int	add_nbr_lem(char **str, t_lemin *data)
 	result = 0;
 	if (!str[0][i])
 		return (free_return((void**)str, -1));
-	while (str[0][i] && str[0][i] >= '0' && str[0][i] <= '9')
+	while (str[0][i] >= '0' && str[0][i] <= '9')
 	{
 		result = result * 10 + str[0][i++] - '0';
-		if (result >= 2147483648)
+		if (result > INT_MAX)
 			return (free_return((void**)str, -1));
 	}
 	if (str[0][i] || result <= 0)
