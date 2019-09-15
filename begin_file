@@ -1,0 +1,159 @@
+./README.md:- https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/
+Binary file ./srcs/.display.c.swp matches
+Binary file ./srcs/.lemin.c.swp matches
+./srcs/begin_file:add_link_to_list.c:	tmp = data->links;
+./srcs/begin_file:add_link_to_list.c:	if (!data->links)
+./srcs/begin_file:add_link_to_list.c:		if (!(data->links = (t_lstlin*)malloc(sizeof(t_lstlin))))
+./srcs/begin_file:add_link_to_list.c:		init_link_elem(data->links, str, mid);
+./srcs/begin_file:add_link_to_list.c:		data->links->id1 = ids[0];
+./srcs/begin_file:add_link_to_list.c:		data->links->id2 = ids[1];
+./srcs/begin_file:add_link_to_list.c:	if (data->actual_step == 1)
+./srcs/begin_file:add_link_to_list.c:		data->actual_step = 2;
+./srcs/begin_file:add_room_to_list.c:	if (!(data->rooms = (t_lstrom*)malloc(sizeof(t_lstrom))))
+./srcs/begin_file:add_room_to_list.c:	if (!(data->rooms->name = (char*)malloc(sizeof(char) * (len + 1))))
+./srcs/begin_file:add_room_to_list.c:		data->rooms->name[i] = str[i];
+./srcs/begin_file:add_room_to_list.c:	data->rooms->name[i] = 0;
+./srcs/begin_file:add_room_to_list.c:	data->rooms->next = NULL;
+./srcs/begin_file:add_room_to_list.c:	if (data->start_end == 1)
+./srcs/begin_file:add_room_to_list.c:		data->start = data->rooms;
+./srcs/begin_file:add_room_to_list.c:	else if (data->start_end == 2)
+./srcs/begin_file:add_room_to_list.c:		data->end = data->rooms;
+./srcs/begin_file:add_room_to_list.c:	data->start_end = 0;
+./srcs/begin_file:add_room_to_list.c:	data->rooms->id = ++data->nbr_room;
+./srcs/begin_file:add_room_to_list.c:	if (data->start_end == 1)
+./srcs/begin_file:add_room_to_list.c:		data->start = tmp->next;
+./srcs/begin_file:add_room_to_list.c:	else if (data->start_end == 2)
+./srcs/begin_file:add_room_to_list.c:		data->end = tmp->next;
+./srcs/begin_file:add_room_to_list.c:	data->start_end = 0;
+./srcs/begin_file:add_room_to_list.c:	tmp->next->id = ++data->nbr_room;
+./srcs/begin_file:add_room_to_list.c:	tmp = data->rooms;
+./srcs/begin_file:bfs_helper.c:	if (data->graph[i][j] == 1 && data->graph[j][0] == 1
+./srcs/begin_file:bfs_helper.c:		&& data->resid[i][j] == 1 && data->resid[j][i] == 1)
+./srcs/begin_file:bfs_helper.c:	data->path[i] = 0;
+./srcs/begin_file:bfs_helper.c:	data->path[0] = i - 1;
+./srcs/begin_file:bfs_helper.c:	data->max_flow++;
+./srcs/begin_file:bfs_helper.c:	if (i - 1 > data->path_size)
+./srcs/begin_file:bfs_helper.c:		data->path_size = i - 1;
+./srcs/begin_file:bfs_helper.c:	data->graph[j][0] = 0;
+./srcs/begin_file:breadth_first_search.c:	data->path[1] = end->room;
+./srcs/begin_file:breadth_first_search.c:	data->resid[end->room][end->parent] = 0;
+./srcs/begin_file:breadth_first_search.c:	data->resid[end->parent][end->room] = 0;
+./srcs/begin_file:breadth_first_search.c:	if (!(data->path = (int*)malloc(sizeof(int) * (data->nbr_room + 2))))
+./srcs/begin_file:breadth_first_search.c:			data->path[i++] = j;
+./srcs/begin_file:breadth_first_search.c:			data->resid[end->room][j] = 0;
+./srcs/begin_file:breadth_first_search.c:			data->resid[j][end->room] = 0;
+./srcs/begin_file:breadth_first_search.c:			data->graph[end->room][0] = 1;
+./srcs/begin_file:breadth_first_search.c:	data->graph[*i][0] = 0;
+./srcs/begin_file:breadth_first_search.c:	if (!(start[0] = queue_new(NULL, 0, data->start->id)))
+./srcs/begin_file:breadth_first_search.c:		while (++j <= data->nbr_room)
+./srcs/begin_file:check_and_fill_tree.c:		data->start_end = 1;
+./srcs/begin_file:check_and_fill_tree.c:			data->start_end = 2;
+./srcs/begin_file:check_and_fill_tree.c:	tmp = data->rooms;
+./srcs/begin_file:check_node_format.c:	if (data->actual_step != 1)
+./srcs/begin_file:check_part2.c:	data->actual_step = 1;
+./srcs/begin_file:check_part2.c:	data->nbr_lem = result;
+./srcs/begin_file:check_part2.c:	if (data->start_end)
+./srcs/begin_file:check_part2.c:		if (data->actual_step == 0)
+./srcs/begin_file:convert_to_usefull.c:	while (i <= data->nbr_room)
+./srcs/begin_file:convert_to_usefull.c:		while (j <= data->nbr_room)
+./srcs/begin_file:convert_to_usefull.c:			if (data->graph[i][j])
+./srcs/begin_file:convert_to_usefull.c:		if (max <= 1 && i != data->start->id && i != data->end->id)
+./srcs/begin_file:convert_to_usefull.c:			data->graph[i][0] = 0;
+./srcs/begin_file:convert_to_usefull.c:	if (!(data->graph = (char**)malloc(sizeof(char*) * (data->nbr_room + 1))))
+./srcs/begin_file:convert_to_usefull.c:	if (!(data->resid = (char**)malloc(sizeof(char*) * (data->nbr_room + 1))))
+./srcs/begin_file:convert_to_usefull.c:	while (i <= data->nbr_room)
+./srcs/begin_file:convert_to_usefull.c:		if (!(data->graph[i] = (char*)malloc(sizeof(char)
+./srcs/begin_file:convert_to_usefull.c:					* (data->nbr_room + 1))))
+./srcs/begin_file:convert_to_usefull.c:		if (!(data->resid[i] = (char*)malloc(sizeof(char)
+./srcs/begin_file:convert_to_usefull.c:					* (data->nbr_room + 1))))
+./srcs/begin_file:convert_to_usefull.c:		ft_memset(data->graph[i], 0, data->nbr_room + 1);
+./srcs/begin_file:convert_to_usefull.c:		ft_memset(data->resid[i], 1, data->nbr_room + 1);
+./srcs/begin_file:convert_to_usefull.c:		data->graph[i++][0] = 1;
+./srcs/begin_file:convert_to_usefull.c:	tmp = data->links;
+./srcs/begin_file:convert_to_usefull.c:		data->graph[tmp->id1][tmp->id2] = 1;
+./srcs/begin_file:convert_to_usefull.c:		data->graph[tmp->id2][tmp->id1] = 1;
+./srcs/begin_file:convert_to_usefull.c://		if ((tmp->id1 == data->start->id || tmp->id2 == data->start->id)
+./srcs/begin_file:convert_to_usefull.c://			&& (tmp->id1 == data->end->id || tmp->id2 == data->end->id))
+./srcs/begin_file:convert_to_usefull.c:	data->graph[data->start->id][0] = 0;
+./srcs/begin_file:convert_to_usefull.c:	return (flow_optimizer(data, data->end->id));
+./srcs/begin_file:display.c:	tmp = data->exit_paths;
+./srcs/begin_file:display.c:	if (data->max_flow == 1 && tmp->path[0] == 2)
+./srcs/begin_file:display.c:		while (lem < data->nbr_lem)
+./srcs/begin_file:display.c:	while (lem < data->nbr_lem && tmp != NULL && i <= data->max_flow)
+./srcs/begin_file:display.c:		if (lem < data->nbr_lem && i <= data->surplus)
+./srcs/begin_file:display.c:			data->surplus--;
+./srcs/begin_file:display.c:		else if (tmp->path[0] <= result && lem < data->nbr_lem)
+./srcs/begin_file:display.c:			if (!(tmp->path[0] == result && tmp->path[0] == data->path_size))
+./srcs/begin_file:display.c:			data->room_tab[((int*)queue[0]->ptr)[queue[0]->room] - 1]->name);
+./srcs/begin_file:display.c:	if (!data->max_flow)
+./srcs/begin_file:display.c:	if (data->max_flow < 3)
+./srcs/begin_file:display.c:		*result = ants_dispatcher(data, data->max_flow) + data->path_size;
+./srcs/begin_file:display.c:		*result = find_right_path_number(data) + data->path_size;
+./srcs/begin_file:flow_optimizer.c:	tmp->path = data->path;
+./srcs/begin_file:flow_optimizer.c:	if (data->exit_paths)
+./srcs/begin_file:flow_optimizer.c:		tmp->prev = data->exit_paths;
+./srcs/begin_file:flow_optimizer.c:		data->exit_paths->next = tmp;
+./srcs/begin_file:flow_optimizer.c:	data->exit_paths = tmp;
+./srcs/begin_file:flow_optimizer.c:	while (i <= data->nbr_room)
+./srcs/begin_file:flow_optimizer.c:		while (j <= data->nbr_room)
+./srcs/begin_file:flow_optimizer.c:			data->resid[i][j++] = 1;
+./srcs/begin_file:flow_optimizer.c:		data->graph[i][0] = 1;
+./srcs/begin_file:flow_optimizer.c:	data->exit_paths = start;
+./srcs/begin_file:leave.c://	while (data->begin_file)
+./srcs/begin_file:leave.c://		tmp = data->begin_file->next;
+./srcs/begin_file:leave.c://		free(data->begin_file->str);
+./srcs/begin_file:leave.c://		free(data->begin_file);
+./srcs/begin_file:leave.c://		data->begin_file = (t_lstst*)tmp;
+./srcs/begin_file:leave.c:	while (data->exit_paths)
+./srcs/begin_file:leave.c:		tmp = data->exit_paths->next;
+./srcs/begin_file:leave.c:		free(data->exit_paths->path);
+./srcs/begin_file:leave.c:		free(data->exit_paths);
+./srcs/begin_file:leave.c:		data->exit_paths = (t_lstpat*)tmp;
+./srcs/begin_file:leave.c:	while (data->file)
+./srcs/begin_file:leave.c:		tmp = data->file->next;
+./srcs/begin_file:leave.c:		free(data->file->str);
+./srcs/begin_file:leave.c:		free(data->file);
+./srcs/begin_file:leave.c:		data->file = (t_lstst*)tmp;
+./srcs/begin_file:leave.c:	free(data->room_tab);
+./srcs/begin_file:leave.c:	if (data->graph && data->resid)
+./srcs/begin_file:leave.c:		while (i <= data->nbr_room)
+./srcs/begin_file:leave.c:			free(data->graph[i]);
+./srcs/begin_file:leave.c:			free(data->resid[i++]);
+./srcs/begin_file:leave.c:		free(data->graph);
+./srcs/begin_file:leave.c:		free(data->resid);
+./srcs/begin_file:leave.c:	while (data->rooms)
+./srcs/begin_file:leave.c:		tmp = data->rooms->next;
+./srcs/begin_file:leave.c:		free(data->rooms->name);
+./srcs/begin_file:leave.c:		free(data->rooms);
+./srcs/begin_file:leave.c:		data->rooms = (t_lstrom*)tmp;
+./srcs/begin_file:leave.c:	while (data->links)
+./srcs/begin_file:leave.c:		tmp = data->links->next;
+./srcs/begin_file:leave.c:		free(data->links->name1);
+./srcs/begin_file:leave.c:		free(data->links);
+./srcs/begin_file:leave.c:		data->links = (t_lstlin*)tmp;
+./srcs/begin_file:lemin.c:	tmp = data->rooms;
+./srcs/begin_file:lemin.c:	if (i == 0 || !(data->room_tab = (t_lstrom **)malloc(sizeof(t_lstrom *) * i)))
+./srcs/begin_file:lemin.c:	tmp = data->rooms;
+./srcs/begin_file:lemin.c:		data->room_tab[i++] = tmp;
+./srcs/begin_file:lemin.c:	data->begin_file = data->file;
+./srcs/begin_file:lemin.c:	data->begin_file->str = NULL;
+./srcs/begin_file:lemin.c:	data->file->next = NULL;
+./srcs/begin_file:lemin.c:	if (!(data->end) || !(data->start))
+./srcs/begin_file:lemin.c:	while (data->begin_file)
+./srcs/begin_file:lemin.c:		if (data->begin_file->str)
+./srcs/begin_file:lemin.c:			ft_putendl(data->begin_file->str);
+./srcs/begin_file:lemin.c:		data->begin_file = data->begin_file->next;
+./srcs/begin_file:optimization.c:	tmp = data->exit_paths;
+./srcs/begin_file:optimization.c:	tmp = data->exit_paths;
+./srcs/begin_file:optimization.c:		result += (data->path_size - tmp->path[0]);
+./srcs/begin_file:optimization.c:	result = data->nbr_lem - result;
+./srcs/begin_file:optimization.c://		data->surplus = 0;
+./srcs/begin_file:optimization.c:		data->surplus = result % limit;
+./srcs/begin_file:optimization.c:	data->max_flow = limit;
+./srcs/begin_file:optimization.c:	limit = data->max_flow;
+./srcs/begin_file:optimization.c:	prev_turns = data->nbr_lem;
+./srcs/begin_file:optimization.c:	while (ants_dispatcher(data, limit) + data->path_size <= prev_turns)
+./srcs/begin_file:optimization.c:		prev_turns = ants_dispatcher(data, limit) + data->path_size;
+./srcs/begin_file:optimization.c:		data->path_size = find_new_max_path(data, limit);
+./srcs/begin_file:parser.c:	node->line = data->file->line + 1;
+./srcs/begin_file:parser.c:	run = data->file;
